@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// function DummyApp(props) {
+//   const {data, data2} = props;
+//   return (
+//     <div>
+//       Dummy App {data} {data2}
+//     </div>
+//   );
+// }
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 0
+    } 
+  }
+
+  clickMe = () => {
+    let newCounter = this.state.counter;
+    newCounter += 1;
+    this.setState({
+      counter: newCounter 
+    })
+  }
+
+  render() {
+    const {data1, data2} = this.props;
+    const { counter } = this.state;
+    return (
+      <div className="App"> 
+        <h1>{data1}</h1>
+        <h1>{data2}</h1>
+        <h1>{counter}</h1>
+        <button onClick={this.clickMe}>Click Me</button>
+      </div>
+    ); 
+  }
 }
 
+
 export default App;
+
+
+
